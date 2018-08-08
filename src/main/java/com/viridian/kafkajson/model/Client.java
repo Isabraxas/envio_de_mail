@@ -21,4 +21,8 @@ public class Client {
         this.nombre = nombre;
         this.edad = edad;
     }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
 }

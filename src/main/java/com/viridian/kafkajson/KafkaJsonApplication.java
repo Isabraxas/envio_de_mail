@@ -29,10 +29,10 @@ public class KafkaJsonApplication implements CommandLineRunner {
 		// cargar imagen
 		File file;
 		try{
-			file = new File("/home/marcelo/IdeaProjects/kafka-json/target/testimg.jpg");
+			file = new File("/home/isvar/Documents/sensible/Test_image.png");
 			BufferedImage img = ImageIO.read(file);
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			ImageIO.write( img, "jpg", baos );
+			ImageIO.write( img, "png", baos );
 			baos.flush();
 			byte[] imageInByte = baos.toByteArray();
 			baos.close();

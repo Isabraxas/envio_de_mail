@@ -40,8 +40,8 @@ public class ClientListener {
             InputStream in = new ByteArrayInputStream(imageInByte);
             BufferedImage bImageFromConvert = ImageIO.read(in);
 
-            ImageIO.write(bImageFromConvert, "jpg", new File(
-                    "/home/marcelo/Desktop/testimg-received.jpg"));
+            ImageIO.write(bImageFromConvert, "png", new File(
+                    "/home/isvar/Desktop/testimg-received.png"));
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
