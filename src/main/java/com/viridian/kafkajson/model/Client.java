@@ -14,6 +14,7 @@ public class Client {
     private String id;
     private String nombre;
     private int edad;
+    private String extensionFile;
     private byte[] foto;
 
     public Client(String id, String nombre, int edad) {
@@ -24,5 +25,13 @@ public class Client {
 
     public void setFoto(byte[] foto) {
         this.foto = foto;
+    }
+
+    public String getExtensionFile() {
+        return extensionFile;
+    }
+
+    public void setExtensionFile(String extensionFile) {
+        this.extensionFile = extensionFile;
     }
 }

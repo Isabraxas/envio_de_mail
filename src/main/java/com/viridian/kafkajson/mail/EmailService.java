@@ -1,5 +1,6 @@
 package com.viridian.kafkajson.mail;
 
+import org.apache.kafka.common.protocol.types.Field;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ByteArrayResource;
@@ -43,7 +44,7 @@ public class EmailService {
 
     }
 
-    public void sendImageKafkaMessage(Mail mail, byte[] bytesfile) throws MessagingException {
+    public void sendImageKafkaMessage(Mail mail, byte[] bytesfile, String extensionFile) throws MessagingException {
 
         MimeMessage message = emailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
@@ -54,8 +55,7 @@ public class EmailService {
         helper.setFrom(mail.getTo());
 
         //helper.addAttachment("attachment-document-image"+fileExtension, new InputStreamResource(inputStream));
-        //helper.addAttachment("attachment-document-image"+fileExtension,new ByteArrayResource(bytesfile), MediaType.APPLICATION_PDF.toString());
-        helper.addAttachment("attachment-document-image"+fileExtension,new ByteArrayResource(bytesfile), MediaType.IMAGE_PNG.toString());
+        helper.addAttachment("attachment-document-image"+extensionFile,new ByteArrayResource(bytesfile), MediaType.IMAGE_PNG.toString());
         emailSender.send(message);
 
     }
@@ -70,8 +70,7 @@ public class EmailService {
         helper.setTo(mail.getTo());
         helper.setFrom(mail.getTo());
 
-        //helper.addAttachment("attachment-document-image"+fileExtension, new InputStreamResource(inputStream));
-        helper.addAttachment("attachment-document-image"+.pdf,new ByteArrayResource(bytesfile), MediaType.APPLICATION_PDF.toString());
+        helper.addAttachment("attachment-document-image"+".pdf",new ByteArrayResource(bytesfile), MediaType.APPLICATION_PDF.toString());
         emailSender.send(message);
 
     }

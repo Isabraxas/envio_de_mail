@@ -54,10 +54,10 @@ public class ClientListener {
             mail.setTo("isvar.vega@gmail.com");
             mail.setSubject("Sending Email with Attachment Example");
             mail.setContent("Content added with Spring Framework by send attached image test");
-            emailService.sendImageKafkaMessage(mail,imageInByte);
+            emailService.sendImageKafkaMessage(mail,imageInByte,data.getExtensionFile());
             //End send email
 
-            ImageIO.write(bImageFromConvert, "png", new File("/home/isvar/Desktop/testimg-received.png"));
+            ImageIO.write(bImageFromConvert, data.getExtensionFile(), new File("/home/isvar/Desktop/testimg-received.png"));
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
